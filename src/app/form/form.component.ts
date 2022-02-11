@@ -1,15 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Product} from '../shared/interfaces/interfaces';
+import {ProductService} from '../shared/sevices/product.service';
 
-export interface User {
-  id?: number;
-  name: string;
-  username: string;
-  email: string;
-  password: string;
-  address: string;
-  age: number
-}
 
 @Component({
   selector: 'app-form',
@@ -17,14 +10,15 @@ export interface User {
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+
   form: FormGroup;
+
   titleAlertName: string = 'Name is required';
   titleAlertPrice: string = 'Price is required';
   titleAlertAddress: string = 'Address is required';
   titleAlertEmail: string = 'Invalid Email';
 
-
-  constructor() {
+  constructor(private productService: ProductService) {
   }
 
   ngOnInit() {
@@ -43,5 +37,25 @@ export class FormComponent implements OnInit {
 
   onSubmit(value: any) {
     console.log('Form submitted: ', this.form);
+    if (this.form.invalid) {
+      return;
+    }
+    const products: Product = {
+      name: this.form.value.productName,
+      price: this.form.value.productPrice,
+      address: this.form.value.address,
+      email: this.form.value.email,
+      phoneNumber: this.form.value.phoneNumber,
+      date: new Date()
+    }
+    console.log('Form sending data', products)
+    this.productService.addProduct(products).subscribe( p => {
+      console.log('ppp', p);
+    })
   }
+
+
+
+
+
 }
