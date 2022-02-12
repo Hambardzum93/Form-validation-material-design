@@ -25,4 +25,7 @@ export class TableComponent implements OnInit {
   }
 
 
+  delete(id: any) {
+    this.productService.deleteProduct(id)
+  }
 }

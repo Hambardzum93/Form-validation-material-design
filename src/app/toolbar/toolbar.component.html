@@ -1,12 +1,27 @@
 <p>
   <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <span class="fill-remaining-space">My Angular project</span>
+      <a routerLink="/">
+        <span class="fill-remaining-space" *ngIf="this.flag; else forma">Products List</span>
+        <ng-template #forma>Add products</ng-template>
+      </a>
       <span class="example-spacer"></span>
-      <button routerLink="/create" mat-raised-button color="primary">Add Product</button>
-      <button routerLink="/" mat-fab color="primary" aria-label="Example icon button with a home icon">
+
+      <a
+        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+         routerLink="/create"
+         mat-raised-button color="primary"
+      >
+        Add Product
+      </a>
+      <a
+        routerLinkActive="active"
+        routerLink="/"
+        mat-fab color="primary" aria-label="Example icon button with a home icon"
+      >
         <mat-icon>home</mat-icon>
-      </button>
+      </a>
+
     </mat-toolbar-row>
   </mat-toolbar>
 </p>

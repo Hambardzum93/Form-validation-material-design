@@ -36,4 +36,8 @@ export class ProductService {
       }))
   }
 
+  deleteProduct(id){
+
+  }
+
 }
