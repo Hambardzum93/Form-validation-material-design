@@ -22,7 +22,7 @@ import {MatTableModule} from '@angular/material/table';
 
 import {MatButtonModule} from '@angular/material/button';
 import {HttpClientModule} from '@angular/common/http';
-import { TableComponent } from './table/table.component';
+import {TableComponent} from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ import { TableComponent } from './table/table.component';
     MatIconModule,
     MatSelectModule,
     MatRadioModule,
-    MatButtonModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
