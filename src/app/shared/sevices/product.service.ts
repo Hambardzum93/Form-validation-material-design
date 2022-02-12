@@ -23,4 +23,8 @@ export class ProductService {
         }))
   }
 
+  getProducts(){
+    return this.http.get(`${environment.fbDbUrl}/products.json`)
+  }
+
 }
