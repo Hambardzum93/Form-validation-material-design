@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Product} from '../shared/interfaces/interfaces';
 import {ProductService} from '../shared/sevices/product.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -12,13 +13,15 @@ import {ProductService} from '../shared/sevices/product.service';
 export class FormComponent implements OnInit {
 
   form: FormGroup;
+  buttonFlag: boolean = false;
 
   titleAlertName: string = 'Name is required';
   titleAlertPrice: string = 'Price is required';
   titleAlertAddress: string = 'Address is required';
   titleAlertEmail: string = 'Invalid Email';
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -50,8 +53,11 @@ export class FormComponent implements OnInit {
     }
     console.log('Form sending data', products)
     this.productService.addProduct(products).subscribe( p => {
+      this.form.reset()
       console.log('ppp', p);
+      this.router.navigate(['/'])
     })
+
   }
 
 

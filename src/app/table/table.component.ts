@@ -28,7 +28,7 @@ export class TableComponent implements OnInit {
   delete(id: any) {
     this.productService.deleteProduct(id).subscribe(() => {
       this.dataSource = this.dataSource.filter(prod => prod.id !== id)
-      alert('Пост был удален')
+      alert('Product has been deleted')
     })
   }
 
