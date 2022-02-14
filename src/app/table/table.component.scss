@@ -16,3 +16,13 @@ table {
 .mat-form-field {
   width: 100%;
 }
+
+.delButton {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 11px 11px;
+  font-size: 0;
+  cursor: pointer;
+  border-radius: 50%;
+}

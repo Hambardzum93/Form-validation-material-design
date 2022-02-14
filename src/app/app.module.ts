@@ -23,13 +23,15 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {HttpClientModule} from '@angular/common/http';
 import {TableComponent} from './table/table.component';
+import { ProductPipe } from './shared/pipes/product.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     ToolbarComponent,
-    TableComponent
+    TableComponent,
+    ProductPipe
   ],
   imports: [
     BrowserModule,

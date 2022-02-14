@@ -29,8 +29,11 @@
           <td class="mdc-data-table__cell mdc-data-table__cell--numeric">{{prod.phoneNumber}}</td>
           <td class="mdc-data-table__cell">{{prod.date | date}}</td>
           <td class="mdc-data-table__cell">
-            <button (click)="delete(id)" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+            <button (click)="delete(prod.id)" class="delButton" aria-label="Example icon button with a delete icon">
               <mat-icon>delete</mat-icon>
+<!--              <svg style="width:24px;height:24px" viewBox="0 0 24 24">-->
+<!--                <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />-->
+<!--              </svg>-->
             </button>
           </td>
         </tr>
